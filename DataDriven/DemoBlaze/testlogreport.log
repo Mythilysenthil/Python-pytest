@@ -1,0 +1,12 @@
+2026=06-09 20:07:25 PM - INFO - Login test started
+2026=06-09 20:07:25 PM - INFO - Clicked Login button
+2026=06-09 20:07:25 PM - INFO - Entered username: admin
+2026=06-09 20:07:25 PM - INFO - Entered password
+2026=06-09 20:07:26 PM - INFO - Clicked Log In
+2026-06-09 20:20:34 - INFO - Login test started
+2026-06-09 20:20:35 - INFO - Clicked Login button
+2026-06-09 20:20:35 - INFO - Entered username: admin
+2026-06-09 20:20:35 - INFO - Entered password
+2026-06-09 20:20:36 - INFO - Clicked Log In
+2026-06-09 20:20:39 - INFO - Welcome text: Welcome admin
+2026-06-09 20:20:39 - INFO - Login test passed

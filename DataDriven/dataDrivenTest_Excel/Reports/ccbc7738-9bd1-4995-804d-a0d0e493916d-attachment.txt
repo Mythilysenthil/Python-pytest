@@ -1,0 +1,2 @@
+[32mINFO    [0m root:test_dataDrivenExcel.py:20 Testing login for user: admin
+[32mINFO    [0m root:test_dataDrivenExcel.py:36 Login successful: Welcome admin

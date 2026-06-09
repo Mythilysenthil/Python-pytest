@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="11.223" timestamp="2026-06-09T19:54:10.579824+05:30" hostname="Mythily"><testcase classname="test_login.TestSearch" name="test_login" time="10.795" /></testsuite></testsuites>
