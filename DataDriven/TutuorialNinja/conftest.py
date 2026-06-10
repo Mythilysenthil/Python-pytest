@@ -26,11 +26,14 @@ def setup_and_teardown(request):
         driver = webdriver.Firefox(options=options)
         
     else:
-        options = webdriver.FirefoxOptions()
-        options.add_argument("--headless")
-        options.add_argument("--width=1920")
-        options.add_argument("--height=1080")
-        driver = webdriver.Firefox(options=options)
+        options = webdriver.EdgeOptions()
+        if headless:
+            options.add_argument("--headless=new")
+            options.add_argument("--disable-gpu")
+            options.add_argument("--window-size=1920,1080")
+            options.add_argument("--no-sandbox")
+            options.add_argument("--disable-dev-shm-usage")
+        driver = webdriver.Edge(options=options)
 
     driver.get(get_config("basic info", "url"))
     driver.maximize_window()

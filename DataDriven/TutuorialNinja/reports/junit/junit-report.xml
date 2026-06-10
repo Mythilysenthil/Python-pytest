@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="3" time="30.184" timestamp="2026-06-10T07:45:40.795057+05:30" hostname="Mythily"><testcase classname="test_login.TestLogin1" name="test_login[mythily@gmail.com-mythily]" time="18.365"><failure message="selenium.common.exceptions.TimeoutException: Message:">self = &lt;test_login.TestLogin1 object at 0x00000167C9A59950&gt;
+username = 'mythily@gmail.com', password = 'mythily'
+
+    @pytest.mark.parametrize("username,password", get_data("Excel/Book1.xlsx", "Sheet1"))
+    def test_login(self, username, password):
+&gt;       self.wait.until(EC.visibility_of_element_located((By.XPATH, "//span[text()='My Account']"))).click()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test_login.py:18: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;selenium.webdriver.support.wait.WebDriverWait (session="eb6cb268c815b31d5540c5d8afc6457b")&gt;
+method = &lt;function visibility_of_element_located.&lt;locals&gt;._predicate at 0x00000167C9A69FE0&gt;
+message = ''
+
+    def until(self, method: Callable[[D], Literal[False] | T], message: str = "") -&gt; T:
+        """Wait until the method returns a value that is not False.
+    
+        Calls the method provided with the driver as an argument until the
+        return value does not evaluate to ``False``.
+    
+        Args:
+            method: A callable object that takes a WebDriver instance as an
+                argument.
+            message: Optional message for TimeoutException.
+    
+        Returns:
+            The result of the last call to `method`.
+    
+        Raises:
+            TimeoutException: If 'method' does not return a truthy value within
+                the WebDriverWait object's timeout.
+    
+        Example:
+            &gt;&gt;&gt; from selenium.webdriver.common.by import By
+            &gt;&gt;&gt; from selenium.webdriver.support.ui import WebDriverWait
+            &gt;&gt;&gt; from selenium.webdriver.support import expected_conditions as EC
+            &gt;&gt;&gt;
+            &gt;&gt;&gt; # Wait until an element is visible on the page
+            &gt;&gt;&gt; wait = WebDriverWait(driver, 10)
+            &gt;&gt;&gt; element = wait.until(EC.visibility_of_element_located((By.ID, "exampleId")))
+            &gt;&gt;&gt; print(element.text)
+        """
+        screen = None
+        stacktrace = None
+    
+        end_time = time.monotonic() + self._timeout
+        while True:
+            try:
+                value = method(self._driver)
+                if value:
+                    return value
+            except self._ignored_exceptions as exc:
+                screen = getattr(exc, "screen", None)
+                stacktrace = getattr(exc, "stacktrace", None)
+            if time.monotonic() &gt; end_time:
+                break
+            time.sleep(self._poll)
+&gt;       raise TimeoutException(message, screen, stacktrace)
+E       selenium.common.exceptions.TimeoutException: Message:
+
+C:\Users\Navee\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\support\wait.py:121: TimeoutException</failure></testcase><testcase classname="test_login.TestLogin1" name="test_search[product0]" time="11.198" /><testcase classname="test_login.TestLogin1" name="test_search[product1]" time="8.541" /></testsuite></testsuites>
