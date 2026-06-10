@@ -1,7 +1,7 @@
 from configparser import ConfigParser
 
 
-def get_data(file, category, key):
+def get_data(category, key):
     config = ConfigParser()
-    config.read(file)
+    config.read("config.ini")
     return config.get(category, key)

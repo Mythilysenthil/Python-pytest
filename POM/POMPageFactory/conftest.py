@@ -1,15 +1,14 @@
 import selenium
 from selenium import webdriver
-import read_config
+from Utilities import read_config
 import pytest
-import utilities.logCreator
-from selenium.webdriver.support.ui import WebDriverWait
+import Utilities.logCreater
 
 @pytest.fixture()
 def setup_and_teardown(request):
-    logger = utilities.logCreator.log_generator()
+    logger = Utilities.logCreater.log_creator()
     browser = read_config.get_data("basic info","browser")
-    if browser=="chrome":
+    if browser=="Chrome":
         driver = webdriver.Chrome()
     elif browser=="Edge":
         driver = webdriver.Edge()
@@ -22,7 +21,6 @@ def setup_and_teardown(request):
     driver.get(url)
     logger.info("Application launched")
     request.cls.driver = driver
-    request.cls.wait = WebDriverWait(driver, 10)
     
     yield
     

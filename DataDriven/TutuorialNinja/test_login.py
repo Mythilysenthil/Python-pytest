@@ -4,15 +4,15 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
-from utilites.ExcelReader import get_data
-from utilites.logCreator import log_generator
+from utilities.ExcelReader import get_data
+from utilities.logCreator import log_generator
 
 
 @pytest.mark.usefixtures("setup_and_teardown")
 class TestLogin1:
     
     logger = log_generator()
-    @pytest.mark.run(order=1)
+    @pytest.mark.order(1)
     @pytest.mark.parametrize("username,password", get_data("Excel/Book1.xlsx", "Sheet1"))
     def test_login(self, username, password):
         self.wait.until(EC.visibility_of_element_located((By.XPATH, "//span[text()='My Account']"))).click()
@@ -20,7 +20,7 @@ class TestLogin1:
         self.wait.until(EC.visibility_of_element_located((By.XPATH, "//input[@name='email']"))).send_keys(username)
         self.wait.until(EC.visibility_of_element_located((By.XPATH, "//input[@name='password']"))).send_keys(password)
         self.wait.until(EC.visibility_of_element_located((By.XPATH, "//input[@value='Login']"))).click()
-    @pytest.mark.run(order=2)
+    @pytest.mark.order(2)
     @pytest.mark.depends(on=["TestLogin1::test_login"], name="test_search")
     @pytest.mark.search
     @pytest.mark.parametrize("product", get_data("Excel/Book1.xlsx", "search"))
