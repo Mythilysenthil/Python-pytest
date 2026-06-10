@@ -2,7 +2,7 @@ import pytest
 import os
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
-from resources.read_config import get_config
+from read_config import get_config
 
 @pytest.fixture(scope="class")
 def setup_and_teardown(request):
